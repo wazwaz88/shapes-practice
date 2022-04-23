@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -14,11 +15,7 @@ public class TestShapes {
         This will be our actual program that we request some information from user to create 3 objects
         We will create 1 Rectangle, 1 Square and 1 Circle object
 
-        Information to create objects will be as below
-         -width of the rectangle = 5.5
-         -height of the rectangle = 6
-         -side of the square = 2.5
-         -radius of the circle = 4
+
 
 
          Then print each object
@@ -40,6 +37,42 @@ public class TestShapes {
 
          Circle has the largest area as 50.24
          */
+
+        Circle circle = new Circle();
+        circle.setRadius(4);
+        Rectangle rectangle = new Rectangle();
+        rectangle.setHeight(6);
+        rectangle.setWidth(5.5);
+        Square square = new Square();
+        square.setSide(2.5);
+
+        List<Shape> listOfShapers = new ArrayList<>();
+
+        listOfShapers.add(circle);
+        listOfShapers.add(rectangle);
+        listOfShapers.add(square);
+
+
+        double max = 0;
+        Shape largestArea = null;
+        for (Shape shape : listOfShapers) {
+
+            System.out.println(shape);
+            System.out.println("Area of the " + shape.getClass().getSimpleName() + " is = " + shape.Area());
+            System.out.println("Perimeter of the " + shape.getClass().getSimpleName() + " is = " + shape.Perimeter());
+            System.out.println();
+
+            if (shape.Area() > max) {
+                max = shape.Area();
+                largestArea = shape;
+            }
+
+        }
+
+
+        System.out.println(largestArea.getClass().getSimpleName() + " has the largest area as " + max);
+
+
 
 
     }
